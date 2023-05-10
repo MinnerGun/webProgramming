@@ -35,7 +35,7 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 20px;
     color: #465b52;
     margin: 15px 0 20px 0;
 }
@@ -55,7 +55,7 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px;
-    background: #90EE90;
+    background: #cbc3e3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky;
@@ -93,7 +93,7 @@ p {
     content: "";
     width: 30%;
     height: 2px;
-    background: #007958;
+    background: #cbc3e3;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -129,4 +129,37 @@ p {
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
+}
+
+
+/* Feature */
+#feature .fe-box{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.06);
+    border:1px solid #cce7d0;
+    border-radius: 4px;
+    margin: 15px 0;   
+}
+#feature .fe-box:hover{
+    box-shadow: 10px 10px 54px rgba(0, 62, 221, 0.1);
+}
+#feature .fe-box h6{
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: black;
+    background-color: #cbc3e3;
+    display: inline-block;
+}
+#feature .fe-box image{
+    width: 100%;
+    margin-bottom: 10px;
+}
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
