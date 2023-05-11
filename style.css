@@ -163,3 +163,74 @@ p {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+
+/* Featured Product */
+#feaproduct {
+    text-align: center;
+}
+#feaproduct h2 {
+    font-size: 60px;
+    line-height: 54px;
+    color: #222;;
+}
+#feaproduct .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+#feaproduct .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+#feaproduct .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+#feaproduct .pro .desc {
+    text-align: start;
+    padding: 10px 0;
+}
+#feaproduct .pro .desc span {
+    color: #606063;
+    font-size: 12px;
+}
+#feaproduct .pro .desc h5 {
+    padding-top: 7px;
+    color: black;
+    font-size: 14px;
+}
+#feaproduct .pro .desc i {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+#feaproduct .pro .desc h4 {
+    padding-top: 7px;
+    font-weight: 700;
+    font-size: 15px;
+    color: black;
+}
+#feaproduct .pro .basket {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #cbc3e3;
+    color:black;
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#feaproduct .procontainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
