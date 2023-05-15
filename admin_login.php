@@ -1,6 +1,25 @@
 <?php
 
-include 'connect.php'
+include 'connect.php';
+
+session_start();
+if(isset($_POST['submit'])){
+    $name = $_POST['username'];
+    $name = filter_var($name, FILTER_SANITIZE_STRING);
+    $pass = sha1($_POST['password']);
+    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+    $select_admin = $conn->prepare('SELECT * FROM "admin" WHERE name = ? AND password = ?');
+    $select_admin->execute([$name, $pass]);
+
+    if($select_admin->rowCount() > 0){
+        $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['admin_id'] = $fetch_admin_id['id'];
+        header('location:index.html');
+        $message[] = 'login succesfully';
+    }else{
+        $message[] = 'wrong username or password';
+    }
+}
 
 ?>
 
@@ -16,6 +35,20 @@ include 'connect.php'
 </head>
 
 <body>
+
+<?php
+    if(isset($message)){
+        foreach($message as $message){
+            echo '
+            <div class="message">
+            <span>.$message</span>
+            <i class="fas fa-times" onlick="this.parentElement.remove();"></i>
+            ';
+        }
+    }
+?>
+
+
     <section class="form-container">
         <form action="" method="POST">
             <h3>login now</h3>

@@ -35,6 +35,9 @@ section {
     margin: 0 auto;
     padding: 2rem;
 }
+
+
+/* form */
 .form-container {
     display: flex;
     align-items: center;
@@ -94,3 +97,48 @@ section {
 .option-btn:hover {
     background-color: black;
 }
+.flex-btn {
+    display: flex;
+    gap:1rem;
+}
+.message {
+    position: sticky;
+    top:0;
+    max-width: 120px;
+    margin:0 auto;
+    background-color: #cbc3e3;
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    justify-content: space-between;
+}
+.message span {
+    font-size: 2rem;
+    color:black;  
+}
+.message i {
+    font-size: 2.5rem;
+    color:red;  
+    cursor: pointer;
+}
+.message i:hover {
+    color:red;   
+}
+
+
+/* media queries */
+@media (max-width: 991px){
+    html {
+        font-size: 55%;
+    }
+}
+@media (max-width: 450px){
+    html {
+        font-size: 50%;
+    }
+}
+
+
+
+/*
