@@ -3,19 +3,20 @@
 include 'connect.php';
 
 session_start();
+
 if(isset($_POST['submit'])){
-    $name = $_POST['username'];
+    $name = $_POST['name'];
     $name = filter_var($name, FILTER_SANITIZE_STRING);
-    $pass = sha1($_POST['password']);
+    $pass = sha1($_POST['pass']);
     $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-    $select_admin = $conn->prepare('SELECT * FROM "admin" WHERE name = ? AND password = ?');
+
+    $select_admin = $conn->prepare("SELECT * FROM 'admin' WHERE name = ? AND password = ?");
     $select_admin->execute([$name, $pass]);
 
     if($select_admin->rowCount() > 0){
         $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
         $_SESSION['admin_id'] = $fetch_admin_id['id'];
-        header('location:index.html');
-        $message[] = 'login succesfully';
+        header('location:dashboard.php');
     }else{
         $message[] = 'wrong username or password';
     }
@@ -41,21 +42,22 @@ if(isset($_POST['submit'])){
         foreach($message as $message){
             echo '
             <div class="message">
-            <span>.$message</span>
-            <i class="fas fa-times" onlick="this.parentElement.remove();"></i>
+            <span>'.$message.'</span>
+            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+            </div>
             ';
         }
     }
 ?>
 
 
-    <section class="form-container">
-        <form action="" method="POST">
+<section class="form-container">
+    <form action="" method="POST">
             <h3>login now</h3>
-            <input type="text" name="username" maxlength="20" required placeholder="enter you username" class="box" oninputs="this.value = this.value.replace(/\s/g, '')">
-            <input type="password" name="password" maxlength="20" required placeholder="enter you password" class="box" oninputs="this.value = this.value.replace(/\s/g, '')">
+            <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
             <input type="submit" value="login now" name="submit" class="btn">
     </form>
-    </section>
+</section>
 </body>
 </html>

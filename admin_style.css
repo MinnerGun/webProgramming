@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
+:root{
+    --main-color:#2980b9;
+    --orange:#f39c12;
+    --red:#e74c3c;
+    --black:#444;
+    --white:#fff;
+    --light-color:#777;
+    --light-bg:#f5f5f5;
+    --border:.2rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+ }
+ 
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +22,8 @@
     border: none;
 }
 *::selection {
-    color:var(--white);
-    background-color: var(--white);
+    color:white;
+    background-color: white;
 }
 ::-webkit-scrollbar {
     width: 1rem;
@@ -21,14 +33,14 @@
     background-color: none;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: var(--main-color);
+    background-color: #cbc3e3;
 }
 html {
     font-size: 62.5%;
     overflow-x: hidden;
 }
 body {
-    background-color: var(--light-bg);
+    background-color: white;
 }
 section {
     max-width: 1200px;
@@ -55,7 +67,7 @@ section {
 }
 .form-container form h3{
     font-size: 2.5rem;
-    color: var(--black);
+    color: black;
     text-transform: uppercase;
 }
 .form-container form .box{
@@ -64,7 +76,7 @@ section {
     padding: 1.4rem;
     font-size: 1.4rem;
     margin: 1rem 0;
-    color: var(--black);
+    color: black;
     border: 1px solid black;
     font-size: 1.8rem;
     border-radius: .5rem;
@@ -87,10 +99,10 @@ section {
     background-color: lightskyblue;
 }
 .delete-btn {
-    background-color: var(--red);
+    background-color: red;
 }
 .option-btn {
-    background-color: var(--orange);
+    background-color: orange;
 }
 .btn:hover,
 .delete-btn:hover,
@@ -123,9 +135,127 @@ section {
     cursor: pointer;
 }
 .message i:hover {
-    color:red;   
+    color:black;   
 }
-
+.empty{
+    padding:1.5rem;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    text-align: center;
+    color:red;
+    border-radius: .5rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+ }
+ .header{
+    position: sticky;
+    top:0; left:0; right:0;
+    background-color: white;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    z-index: 1000;
+ }
+ 
+ .header .flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+ }
+ 
+ .header .flex .logo{
+    font-size: 2.5rem;
+    color:black;
+ }
+ 
+ .header .flex .logo span{
+    color:white;
+ }
+ 
+ .header .flex .navbar a{
+    margin:0 1rem;
+    font-size: 2rem;
+    color:black;
+ }
+ 
+ .header .flex .navbar a:hover{
+    color:white;
+    text-decoration: underline;
+ }
+ 
+ .header .flex .icons div{
+    margin-left: 1.7rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color:black;
+ }
+ 
+ .header .flex .icons div:hover{
+    color:white;
+ }
+ 
+ .header .flex .profile{
+    position: absolute;
+    top:120%; right:2rem;
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    border:1px solid black;
+    padding:2rem;
+    width: 30rem;
+    padding-top: 1.2rem;
+    display: none;
+    animation:fadeIn .2s linear;
+ }
+ 
+ .header .flex .profile.active{
+    display: inline-block;
+ }
+ 
+ .header .flex .profile p{
+    text-align: center;
+    color:black;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+ }
+ #menu-btn{
+    display: none;
+ }
+ 
+ .dashboard .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+ }
+ 
+ .dashboard .box-container .box{
+    padding:2rem;
+    text-align: center;
+    border:1px solid black;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    border-radius: .5rem;
+    background-color: white;
+ }
+ 
+ .dashboard .box-container .box h3{
+    font-size: 2.7rem;
+    color:black;
+ }
+ 
+ .dashboard .box-container .box h3 span{
+    font-size: 2rem;
+ }
+ 
+ .dashboard .box-container .box p{
+    padding:1.3rem;
+    border-radius: .5rem;
+    background-color: #cbc3e3;
+    font-size: 1.7rem;
+    color:black;
+    margin:1rem 0;
+ }
 
 /* media queries */
 @media (max-width: 991px){
