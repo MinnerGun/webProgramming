@@ -1,4 +1,9 @@
+<?php
 
+include 'connect.php';
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="admin_style.css">
 </head>
@@ -22,14 +27,14 @@
 
       <div class="box">
          <h3>Welcome!</h3>
-         <p><?= $fetch_profile['name']; ?></p>
+         <p><?= $fetch_profile['name'] ??= 'admin panel'; ?></p>
          <a href="update_profile.php" class="btn">Update Profile</a>
       </div>
 
       <div class="box">
          <?php
             $total_pendings = 0;
-            $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+            $select_pendings = $db->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
             $select_pendings->execute(['pending']);
             if($select_pendings->rowCount() > 0){
                while($fetch_pendings = $select_pendings->fetch(PDO::FETCH_ASSOC)){
@@ -45,7 +50,7 @@
       <div class="box">
          <?php
             $total_completes = 0;
-            $select_completes = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
+            $select_completes = $db->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
             $select_completes->execute(['completed']);
             if($select_completes->rowCount() > 0){
                while($fetch_completes = $select_completes->fetch(PDO::FETCH_ASSOC)){
@@ -60,7 +65,7 @@
 
       <div class="box">
          <?php
-            $select_orders = $conn->prepare("SELECT * FROM `orders`");
+            $select_orders = $db->prepare("SELECT * FROM `orders`");
             $select_orders->execute();
             $number_of_orders = $select_orders->rowCount()
          ?>
@@ -71,7 +76,7 @@
 
       <div class="box">
          <?php
-            $select_products = $conn->prepare("SELECT * FROM `products`");
+            $select_products = $db->prepare("SELECT * FROM `products`");
             $select_products->execute();
             $number_of_products = $select_products->rowCount()
          ?>
@@ -82,7 +87,7 @@
 
       <div class="box">
          <?php
-            $select_users = $conn->prepare("SELECT * FROM `users`");
+            $select_users = $db->prepare("SELECT * FROM `users`");
             $select_users->execute();
             $number_of_users = $select_users->rowCount()
          ?>
@@ -93,7 +98,7 @@
 
       <div class="box">
          <?php
-            $select_admins = $conn->prepare("SELECT * FROM `admin`");
+            $select_admins = $db->prepare("SELECT * FROM `admin`");
             $select_admins->execute();
             $number_of_admins = $select_admins->rowCount()
          ?>
@@ -104,7 +109,7 @@
 
       <div class="box">
          <?php
-            $select_messages = $conn->prepare("SELECT * FROM `services`");
+            $select_messages = $db->prepare("SELECT * FROM `services`");
             $select_messages->execute();
             $number_of_messages = $select_messages->rowCount()
          ?>
@@ -116,8 +121,6 @@
    </div>
 
 </section>
-
-
 
     <script src="admin_script.js"></script>
 </body>
