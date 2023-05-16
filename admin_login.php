@@ -1,24 +1,23 @@
 <?php
-
 include 'connect.php';
-
+ob_start();
 session_start();
 
 if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $name = filter_var($name, FILTER_SANITIZE_STRING);
-    $pass = sha1($_POST['pass']);
-    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-
-    $select_admin = $conn->prepare("SELECT * FROM 'admin' WHERE name = ? AND password = ?");
-    $select_admin->execute([$name, $pass]);
-
-    if($select_admin->rowCount() > 0){
-        $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['admin_id'] = $fetch_admin_id['id'];
-        header('location:dashboard.php');
-    }else{
-        $message[] = 'wrong username or password';
+    if($_POST['name']=="" or $_POST['password']==""){
+      echo"<center><h1>Username or Password cannot be empty</h1></center>";
+    } else{
+        $name = strip_tags(trim($_POST["name"]));
+        $pass = strip_tags(trim($_POST["password"]));
+        $query=$db->prepare("SELECT * FROM `admin` WHERE name = ? AND password = ?");
+        $query->execute(array($name,$pass));
+        $control=$query->fetch(PDO::FETCH_OBJ);
+        IF($control>0){
+            $_SESSION["name"]=$name;
+            header("Location:dashboard.php");
+            exit();
+        }
+        echo "<center><h1>Username or Password is incorrect</h1></center>";
     }
 }
 
@@ -55,7 +54,7 @@ if(isset($_POST['submit'])){
     <form action="" method="POST">
             <h3>login now</h3>
             <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-            <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+            <input type="password" name="password" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
             <input type="submit" value="login now" name="submit" class="btn">
     </form>
 </section>
