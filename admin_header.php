@@ -1,4 +1,5 @@
 <?php
+    $id = ("SELECT * FROM `admin` WHERE id = ?");
    if(isset($message)){
       foreach($message as $message){
          echo '
@@ -28,14 +29,14 @@
         <div class="profile">
             <?php
                 $select_profile = $db->prepare("SELECT * FROM `admin` WHERE id = ?");
-                $select_profile->execute([$admin_id]);
+                $select_profile->execute([$id]);
                 $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
             ?>
-            <p><?= $fetch_profile['name']; ?></p>
+            <p><?= $fetch_profile['name'] ??= 'admin panel'; ?></p>
             <a href="update_profile.php" class="btn">Update Profile</a>
             <div class="flex-btn">
-                <a href="admin_login.php" class="option-btn">Login</a>
-                <a href="register_admin.php" class=option-btn">Register</a>
+            <a href="admin_login.php" class="option-btn">Login</a>
+            <a href="register_admin.php" class="option-btn">Register</a>
             </div>
             <a href="admin_logout.php" class="delete-btn" onclick="return confirm('logout from the website?');">Logout</a> 
         </div>

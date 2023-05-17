@@ -27,7 +27,7 @@ session_start();
 
       <div class="box">
          <h3>Welcome!</h3>
-         <p><?= $fetch_profile['name'] ??= 'admin panel'; ?></p>
+         <p><?= $fetch_profile['name'] ??= 'Update'; ?></p>
          <a href="update_profile.php" class="btn">Update Profile</a>
       </div>
 
@@ -42,7 +42,7 @@ session_start();
                }
             }
          ?>
-         <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
+         <h3><span>Rp.</span><?= $total_pendings; ?><span>/-</span></h3>
          <p>total pendings</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
@@ -58,7 +58,7 @@ session_start();
                }
             }
          ?>
-         <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
+         <h3><span>Rp</span><?= $total_completes; ?><span>/-</span></h3>
          <p>completed orders</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
