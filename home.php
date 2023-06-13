@@ -22,7 +22,7 @@ include 'wishlist_cart.php';
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>home</title>
    
-   
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
    
@@ -33,14 +33,56 @@ include 'wishlist_cart.php';
    
 <?php include 'user_header.php'; ?>
 
-    <section id="banner">
-        <h4>Welcome to our website</h4>
-        <h2>Cheapest mechanic in the west</h2>
-        <h1>Order now!</h1>
-        <p>terms and service may apply.</p>
-        <button>Click Me!</button>
-    </section>
+    <div class="home-bg">
 
+<section class="home">
+
+   <div class="swiper home-slider">
+   
+   <div class="swiper-wrapper">
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="msc/wheel1.png" alt="">
+         </div>
+         <div class="content">
+            <span>Top Sellers</span>
+            <h3>Car Wheel</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="msc/p2.jpg" alt="">
+         </div>
+         <div class="content">
+            <span>Top Sellers</span>
+            <h3>Bike Wheel</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="msc/p3.jpg" alt="">
+         </div>
+         <div class="content">
+            <span>Top Sellers</span>
+            <h3>Bike Oil</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
+
+   </div>
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+
+</section>
+
+</div>
     <section id="feature" class="section-p1">
         <div class="fe-box">
             <img src="msc/f1.png" alt="off-shipping">
@@ -64,84 +106,69 @@ include 'wishlist_cart.php';
       </div>
     </section>
 
-    <section id="feaproduct" class="section-p1">
-        <h2>Top Sellers</h2>
-        <p>high quality, low on price</p>
-        <div class="procontainer">
-            <div class="pro">
-                <img src="msc/wheel1.png" alt="product-1">
-                <div class="desc">
-                    <span>White Rhino</span>
-                    <h5>White Rhino Car Wheel 85cm</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>Rp.50.000</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-shopping-basket basket"></i></a>
-            </div>
-       
-            <div class="pro">
-                <img src="msc/p2.jpg" alt="product-2">
-                <div class="desc">
-                    <span>White Rhino</span>
-                    <h5>White Rhino Bike Wheel 60cm</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>Rp.35.000</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-shopping-basket basket"></i></a>
-            </div>
- 
-            <div class="pro">
-                <img src="msc/p3.jpg" alt="product-3">
-                <div class="desc">
-                    <span>Honda</span>
-                    <h5>Bike Oil 0.8L</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>Rp.30.000</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-shopping-basket basket"></i></a>
-            </div>
- 
-            <div class="pro">
-                <img src="msc/p4.jpg" alt="product-4">
-                <div class="desc">
-                    <span>Castrol</span>
-                    <h5>Car Oil 3L</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>Rp.45.000</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-shopping-basket basket"></i></a>
-            </div>
-        </div>
-    </section>
 
 
 <?php include 'footer.php'; ?>
 
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
+<script src="script.js"></script>
+
+<script>
+
+var swiper = new Swiper(".home-slider", {
+   loop:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable:true,
+    },
+});
+
+ var swiper = new Swiper(".category-slider", {
+   loop:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable:true,
+   },
+   breakpoints: {
+      0: {
+         slidesPerView: 2,
+       },
+      650: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 5,
+      },
+   },
+});
+
+var swiper = new Swiper(".products-slider", {
+   loop:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable:true,
+   },
+   breakpoints: {
+      550: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+   },
+});
+
+</script>
 
 </body>
 </html>
