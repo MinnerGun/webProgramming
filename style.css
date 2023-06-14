@@ -477,7 +477,7 @@ section{
    border:var(--border);
    text-align: center;
    padding:2rem;
-   background: var(--black);
+   background: var(--white);
    border-radius: .5rem;
 }
 
@@ -490,7 +490,7 @@ section{
 }
 
 .category .slide:hover h3{
-   color:var(--black);
+   color:var(--white);
 }
 
 .category .slide img{

@@ -83,7 +83,41 @@ include 'wishlist_cart.php';
 </section>
 
 </div>
-    <section id="feature" class="section-p1">
+    
+
+<section class="category">
+
+<h1 class="heading">shop by category</h1>
+
+<div class="swiper category-slider">
+
+<div class="swiper-wrapper">
+
+<a href="category.php?category=wheels" class="swiper-slide slide">
+   <img src="msc/wheelicon.png" alt="">
+   <h3>Wheels</h3>
+</a>
+
+<a href="category.php?category=oils" class="swiper-slide slide">
+   <img src="msc/oilicon.png" alt="">
+   <h3>Oils</h3>
+</a>
+
+<a href="category.php?category=others" class="swiper-slide slide">
+   <img src="msc/bolticon.png" alt="">
+   <h3>Others</h3>
+</a>
+
+</div>
+
+<div class="swiper-pagination"></div>
+
+</div>
+
+</section>
+
+
+<section id="feature" class="section-p1">
         <div class="fe-box">
             <img src="msc/f1.png" alt="off-shipping">
             <h6>Discounted price</h6>
@@ -107,6 +141,7 @@ include 'wishlist_cart.php';
     </section>
 
 
+    
 
 <?php include 'footer.php'; ?>
 
@@ -140,10 +175,10 @@ var swiper = new Swiper(".home-slider", {
         slidesPerView: 3,
       },
       768: {
-        slidesPerView: 4,
+        slidesPerView: 3,
       },
       1024: {
-        slidesPerView: 5,
+        slidesPerView: 3,
       },
    },
 });
