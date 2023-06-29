@@ -93,17 +93,17 @@ include 'wishlist_cart.php';
 
 <div class="swiper-wrapper">
 
-<a href="category.php?category=wheels" class="swiper-slide slide">
+<a href="category.php?category=Wheel" class="swiper-slide slide">
    <img src="msc/wheelicon.png" alt="">
    <h3>Wheels</h3>
 </a>
 
-<a href="category.php?category=oils" class="swiper-slide slide">
+<a href="category.php?category=Oil" class="swiper-slide slide">
    <img src="msc/oilicon.png" alt="">
    <h3>Oils</h3>
 </a>
 
-<a href="category.php?category=others" class="swiper-slide slide">
+<a href="category.php?category=Others" class="swiper-slide slide">
    <img src="msc/bolticon.png" alt="">
    <h3>Others</h3>
 </a>

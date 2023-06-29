@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'components/wishlist_cart.php';
+include 'wishlist_cart.php';
 
 ?>
 
@@ -25,7 +25,7 @@ include 'components/wishlist_cart.php';
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
    
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -40,7 +40,7 @@ include 'components/wishlist_cart.php';
 
    <?php
      $category = $_GET['category'];
-     $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$category}%'"); 
+     $select_products = $db->prepare("SELECT * FROM `products` WHERE name LIKE '%{$category}%'"); 
      $select_products->execute();
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -52,7 +52,7 @@ include 'components/wishlist_cart.php';
       <input type="hidden" name="image" value="<?= $fetch_product['image_01']; ?>">
       <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
       <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-      <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+      <img src="msc/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
          <div class="price"><span>$</span><?= $fetch_product['price']; ?><span>/-</span></div>
@@ -83,9 +83,9 @@ include 'components/wishlist_cart.php';
 
 
 
-<?php include 'components/footer.php'; ?>
+<?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
