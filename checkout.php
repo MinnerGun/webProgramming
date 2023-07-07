@@ -54,10 +54,8 @@ if(isset($_POST['order'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>checkout</title>
    
-   <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="style.css">
 
 </head>
@@ -114,9 +112,6 @@ if(isset($_POST['order'])){
             <span>payment method :</span>
             <select name="method" class="box" required>
                <option value="cash on delivery">cash on delivery</option>
-               <option value="credit card">credit card</option>
-               <option value="paytm">paytm</option>
-               <option value="paypal">paypal</option>
             </select>
          </div>
          <div class="inputBox">

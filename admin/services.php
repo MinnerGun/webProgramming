@@ -9,7 +9,7 @@ if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
    $delete_message = $db->prepare("DELETE FROM `services` WHERE id = ?");
    $delete_message->execute([$delete_id]);
-   header('location:messages.php');
+   header('services.php');
 }
 
 ?>
@@ -49,7 +49,7 @@ if(isset($_GET['delete'])){
    <p> email : <span><?= $fetch_message['email']; ?></span></p>
    <p> number : <span><?= $fetch_message['number']; ?></span></p>
    <p> message : <span><?= $fetch_message['message']; ?></span></p>
-   <a href="services.php??delete=<?= $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="delete-btn">delete</a>
+   <a href="services.php?delete=<?= $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="delete-btn">delete</a>
    </div>
    <?php
          }
@@ -73,7 +73,7 @@ if(isset($_GET['delete'])){
 
 
 
-<script src="../js/admin_script.js"></script>
+<script src="admin_script.js"></script>
    
 </body>
 </html>
